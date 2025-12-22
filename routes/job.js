@@ -99,7 +99,7 @@ router.get('/', optionalAuth, async (req, res) => {
     const { data, error } = await supabase
       .from('jobs') 
       .select('*')
-      .eq('isActive', true) // Matches your Supabase 'isActive' column
+      .eq('is_active', true) // Changed from 'isActive' to 'is_active' to match your DB
       .order('priority', { ascending: false });
 
     if (error) throw error;
@@ -110,8 +110,9 @@ router.get('/', optionalAuth, async (req, res) => {
       data: data
     });
   } catch (error) {
-    console.error('Supabase Error:', error.message);
-    res.status(500).json({ status: 'error', message: 'Database error' });
+    // This will now show you the real error in your console if it fails again
+    console.error('Supabase Error:', error.message); 
+    res.status(500).json({ status: 'error', message: error.message });
   }
 });
 
