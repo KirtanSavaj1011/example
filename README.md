@@ -10,7 +10,7 @@ A Node.js/Express backend API for the We3Vision blog system with user authentica
 - **User Management**: Admin panel for user management
 - **Security**: Rate limiting, input validation, and security headers
 
-## Tech Stack
+## Tech Stack 
 
 - **Node.js** - Runtime environment
 - **Express.js** - Web framework
